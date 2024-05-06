@@ -12,6 +12,7 @@ project(sibr_${SIBR_PROJECT} LANGUAGES CXX)
 
 sibr_gitlibrary(TARGET CudaRasterizer
     GIT_REPOSITORY 	"https://github.com/zhaofuq/LOD-CudaRasterizer.git"
+    GIT_TAG 		"main"
 )
 
 find_package(CUDAToolkit REQUIRED)
