@@ -34,7 +34,7 @@ void resetScene(RemoteAppArgs myArgs,
 {
 	if (multiViewManager.numSubViews() > 0)
 	{
-		multiViewManager.removeSubView("Point view");
+		multiViewManager.removeSubView("Render");
 		multiViewManager.removeSubView("Top view");
 	}
 
@@ -101,8 +101,8 @@ void resetScene(RemoteAppArgs myArgs,
 	multiViewManager.addSubView("Top view", topView, usedResolution);
 	topView->active(false);
 
-	multiViewManager.addIBRSubView("Point view", pointBasedView, { sceneResWidth, sceneResHeight }, ImGuiWindowFlags_NoBringToFrontOnFocus);
-	multiViewManager.addCameraForView("Point view", generalCamera);
+	multiViewManager.addIBRSubView("Render", pointBasedView, { sceneResWidth, sceneResHeight }, ImGuiWindowFlags_NoBringToFrontOnFocus);
+	multiViewManager.addCameraForView("Render", generalCamera);
 
 	CHECK_GL_ERROR;
 
@@ -110,7 +110,7 @@ void resetScene(RemoteAppArgs myArgs,
 	generalCamera->getCameraRecorder().setViewPath(pointBasedView, myArgs.dataset_path.get());
 	if (myArgs.pathFile.get() != "") {
 		generalCamera->getCameraRecorder().loadPath(myArgs.pathFile.get(), usedResolution.x(), usedResolution.y());
-		generalCamera->getCameraRecorder().recordOfflinePath(myArgs.outPath, multiViewManager.getIBRSubView("Point view"), "");
+		generalCamera->getCameraRecorder().recordOfflinePath(myArgs.outPath, multiViewManager.getIBRSubView("Render"), "");
 		if (!myArgs.noExit)
 			exit(0);
 	}

@@ -571,7 +571,7 @@ void sibr::GaussianView::onUpdate(Input & input)
 void sibr::GaussianView::onGUI()
 {
 	// Generate and update UI elements
-	const std::string guiName = "3D Gaussians";
+	const std::string guiName = "Gaussians";
 	if (ImGui::Begin(guiName.c_str())) 
 	{
 		if (ImGui::BeginCombo("Render Mode", currMode.c_str()))

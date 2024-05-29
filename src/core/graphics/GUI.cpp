@@ -32,6 +32,28 @@ namespace sibr
 			ImGui::SetNextWindowContentSize(ImVec2(viewport.finalWidth(), viewport.finalHeight()));
 		}
 
+		// Set the style of the window
+		ImGuiStyle& style = ImGui::GetStyle();
+		ImVec4* colors = style.Colors;
+		// // set the window background color
+		// colors[ImGuiCol_WindowBg] = ImVec4(0.0f, 0.0f, 0.0f, 0.7f);
+		
+		// // set the window border color
+		// colors[ImGuiCol_Text] = ImVec4(0.00f, 0.00f, 0.00f, 1.00f);
+		// // set text color
+		// colors[ImGuiCol_TitleBg] = ImVec4(0.96f, 0.96f, 0.96f, 1.00f);
+		// colors[ImGuiCol_TitleBgActive] = ImVec4(0.82f, 0.82f, 0.82f, 1.00f); 
+		// // set button colors
+		// colors[ImGuiCol_Button] = ImVec4(0.85f, 0.85f, 0.85f, 1.00f); 
+		// colors[ImGuiCol_ButtonHovered] = ImVec4(0.86f, 0.86f, 0.86f, 1.00f); 
+		// colors[ImGuiCol_ButtonActive] = ImVec4(0.06f, 0.53f, 1.00f, 1.00f); 
+		// // set border color
+		// colors[ImGuiCol_Border] = ImVec4(0.78f, 0.78f, 0.78f, 0.50f);
+		// set the window border size
+		style.WindowRounding = 5.0f;
+		style.FrameRounding = 4.0f;
+		style.ScrollbarRounding = 12.0f;
+
 		if (::ImGui::Begin(windowTitle.c_str(), NULL, flags))
 		{
 			// Get the current cursor position (where your window is)

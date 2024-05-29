@@ -74,7 +74,7 @@ std::vector<fs::path> get_matching_filenames(const fs::path& path, const std::st
     return matching_files;
 }
 
-#define PROGRAM_NAME "sibr_LOD_3Dgaussian"
+#define PROGRAM_NAME "LOD 3DGS"
 using namespace sibr;
 
 std::pair<int, int> findArg(const std::string& line, const std::string& name)
@@ -261,8 +261,8 @@ int main(int ac, char** av)
 	if (myArgs.rendering_mode == 1) 
 		multiViewManager.renderingMode(IRenderingMode::Ptr(new StereoAnaglyphRdrMode()));
 	
-	multiViewManager.addIBRSubView("Point view", gaussianView, usedResolution, ImGuiWindowFlags_ResizeFromAnySide | ImGuiWindowFlags_NoBringToFrontOnFocus);
-	multiViewManager.addCameraForView("Point view", generalCamera);
+	multiViewManager.addIBRSubView("Render", gaussianView, usedResolution, ImGuiWindowFlags_ResizeFromAnySide | ImGuiWindowFlags_NoBringToFrontOnFocus);
+	multiViewManager.addCameraForView("Render", generalCamera);
 
 	// Top view
 	const std::shared_ptr<sibr::SceneDebugView> topView(new sibr::SceneDebugView(scene, generalCamera, myArgs));
@@ -275,7 +275,7 @@ int main(int ac, char** av)
 	if (myArgs.pathFile.get() !=  "" ) 
 	{
 		generalCamera->getCameraRecorder().loadPath(myArgs.pathFile.get(), usedResolution.x(), usedResolution.y());
-		generalCamera->getCameraRecorder().recordOfflinePath(myArgs.outPath, multiViewManager.getIBRSubView("Point view"), "");
+		generalCamera->getCameraRecorder().recordOfflinePath(myArgs.outPath, multiViewManager.getIBRSubView("Render"), "");
 		if( !myArgs.noExit )
 			exit(0);
 	}
