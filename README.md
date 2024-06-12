@@ -44,11 +44,22 @@ cmake --build build --target install --config RealWithDebInfo
 
 ## To run an example
 For more details, please see the official documentation: http://sibr.gitlabpages.inria.fr
-
+Run our LOD Viewer for Multi-Resolution Gaussians, using 
 ```sh
-./install/bin/SIBR_gaussianViewer_app_rwdi.exe -m <path to model path> --dmax <max depth value>
+./install/bin/SIBR_gaussianViewer_app_rwdi.exe -m <path to letsgo model path> --render-mode lod --dmax <max depth value>
+```
+and our model files are structured as:
+```sh
+{exp-name}/point_cloud/iteration_xxx:
+  --level_0.ply
+  --level_1.ply
+  ...
 ```
 
+Or run original Gaussian Viewer, using
+```sh
+./install/bin/SIBR_gaussianViewer_app_rwdi.exe -m <path to gaussian model path> --render-mode gaussian
+```
 # Citation
 If you find our code or paper helps, please consider citing:
 <section class="section" id="BibTeX">
