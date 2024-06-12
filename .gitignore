@@ -3,7 +3,7 @@ build/
 install/
 cmake-gui.exe.stackdump
 __pycache__/
-
+screenshots/
 # emacs garbage
 \#*
 .\#*
