@@ -46,7 +46,7 @@ cmake --build build --target install --config RealWithDebInfo
 For more details, please see the official documentation: http://sibr.gitlabpages.inria.fr
 
 ```sh
-./install/bin/SIBR_gaussianViewer_app_rwdi.exe -m <path to model path> 
+./install/bin/SIBR_gaussianViewer_app_rwdi.exe -m <path to model path> --dmax <max depth value>
 ```
 
 # Citation
