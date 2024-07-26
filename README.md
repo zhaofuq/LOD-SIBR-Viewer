@@ -51,7 +51,10 @@ Run our LOD Viewer for Multi-Resolution Gaussians, using
 ```
 and our model files are structured as:
 ```sh
-{exp-name}/point_cloud/iteration_xxx:
+{exp-name}/
+cfg_args
+camera.json
+point_cloud/iteration_xxx:
   --level_0.ply
   --level_1.ply
   ...
