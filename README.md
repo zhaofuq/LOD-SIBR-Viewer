@@ -46,7 +46,8 @@ cmake --build build --target install --config RealWithDebInfo
 For more details, please see the official documentation: http://sibr.gitlabpages.inria.fr
 Run our LOD Viewer for Multi-Resolution Gaussians, using 
 ```sh
-./install/bin/SIBR_gaussianViewer_app_rwdi.exe -m <path to letsgo model path> --render-mode lod --dmax <max depth value>
+./install/bin/SIBR_gaussianViewer_app_rwdi.exe  -m <path to letsgo model path> 
+--render-mode lod 
 ```
 and our model files are structured as:
 ```sh

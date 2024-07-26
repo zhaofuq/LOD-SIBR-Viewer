@@ -80,6 +80,9 @@ using namespace sibr;
 std::pair<int, int> findArg(const std::string& line, const std::string& name)
 {
 	int start = line.find(name, 0);
+	if (start == std::string::npos){
+		return {std::string::npos, std::string::npos};
+	}
 	start = line.find("=", start);
 	start += 1;
 	int end = line.find_first_of(",)", start);
@@ -167,6 +170,14 @@ int main(int ac, char** av)
 	auto rng = findArg(cfgLine, "sh_degree");
 	int sh_degree = std::stoi(cfgLine.substr(rng.first, rng.second - rng.first));
 
+	rng = findArg(cfgLine, "depth_max");
+	float depth_max;
+    if (rng.first == std::string::npos) {
+        depth_max = 100.0f;
+    } else {
+        depth_max = std::stof(cfgLine.substr(rng.first, rng.second - rng.first));
+    }
+
 	rng = findArg(cfgLine, "white_background");
 	bool white_background = cfgLine.substr(rng.first, rng.second - rng.first).find("True") != -1;
 
@@ -191,7 +202,7 @@ int main(int ac, char** av)
 
 	std::string plyfile = myArgs.modelPath.get();
 	std::string renderMode = myArgs.renderMode.get();
-	float depth_max = myArgs.dmax.get();
+
 	if (plyfile.back() != '/')
 		plyfile += "/";
 	plyfile += "point_cloud";
