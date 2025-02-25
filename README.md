@@ -39,7 +39,7 @@ git clone git@github.com:zhaofuq/LOD-SIBR-Viewer.git -b main
 ```sh
 cd LOD-SIBR-Viewer
 cmake . -B build
-cmake --build build --target install --config RealWithDebInfo
+cmake --build build --target install --config RelWithDebInfo
 ```
 
 ## To run an example
